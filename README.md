@@ -1,1 +1,1 @@
-# phpbb3.2_post_revisions
+# phpBB 3.2 Prime Post Revisions

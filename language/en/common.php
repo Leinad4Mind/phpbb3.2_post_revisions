@@ -1,24 +1,22 @@
 <?php
-/**
-*
-* Prime Post Revision extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2015 BruninoIt
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PHPBB'))
-{
-	exit;
+ *
+ * @package Prime Post Revision
+ * @copyright (c) 2018 Leinad4Mind
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+ *
+ */
+
+/**
+ * DO NOT CHANGE
+ */
+if (! defined ( 'IN_PHPBB' )) {
+	exit ();
 }
 
-if (empty($lang) || !is_array($lang))
-{
-	$lang = array();
+if (empty ( $lang ) || ! is_array ( $lang )) {
+	$lang = array ();
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -34,20 +32,19 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// ’ « » “ ” …
+// â€™ Â«Â Â» â€œ â€� â€¦
 //
 
-$lang = array_merge($lang, array(
-	'ACL_U_PPR_VIEW'		=> 'Can see the story of posts’ edits',
-	'ACL_U_PPR_DELETE'		=> 'Can delete edits of posts',
-	'ACL_U_PPR_RESTORE'		=> 'Can restore old version of posts',
-	'EXTENSION_BY'		=> 'Extension by',
-	'PPR_REVISION'		=> 'Post Revision',
-	'PPR_RETURN'		=> 'Return to Post Revision',
-	'PPR_TITLE'		=> 'Post Revision',
-'PPR_POST' => 'Post Edits',
-	'PPR_ORIGINAL' => 'Original post version',
-	'PPR_RESTORED'		=> 'Post restored',
-	'PPR_DELETED'		=> 'Post revision deleted',
-	'PPR_POST_RESTORED' => 'Post restored',
+$lang = array_merge ( $lang, array (
+		'ACL_U_PPR_VIEW' 	=> 'Can view post history',
+		'ACL_U_PPR_DELETE' 	=> 'Can delete edits of posts',
+		'ACL_U_PPR_RESTORE' => 'Can restore old version of posts',
+		'PPR_REVISION'		=> 'Post Revision',
+		'PPR_RETURN' 		=> 'Return to Post Revision',
+		'PPR_TITLE' 		=> 'Post Revision',
+		'PPR_POST'		 	=> 'Post Edits',
+		'PPR_ORIGINAL' 		=> 'Original post version',
+		'PPR_RESTORED' 		=> 'Post restored',
+		'PPR_DELETED' 		=> 'Post revision deleted',
+		'PPR_POST_RESTORED' => 'Post restored' 
 ));

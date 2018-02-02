@@ -1,24 +1,22 @@
 <?php
-/**
-*
-* Prime Post Revision extension for the phpBB Forum Software package.
-*
-* @copyright (c) 2015 BruninoIt
-* @license GNU General Public License, version 2 (GPL-2.0)
-*
-*/
 
 /**
-* DO NOT CHANGE
-*/
-if (!defined('IN_PHPBB'))
-{
-	exit;
+ *
+ * @package Prime Post Revision
+ * @copyright (c) 2018 Leinad4Mind
+ * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+ *
+ */
+
+/**
+ * DO NOT CHANGE
+ */
+if (! defined ( 'IN_PHPBB' )) {
+	exit ();
 }
 
-if (empty($lang) || !is_array($lang))
-{
-	$lang = array();
+if (empty ( $lang ) || ! is_array ( $lang )) {
+	$lang = array ();
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -34,20 +32,19 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// ’ « » “ ” …
+// â€™ Â«Â Â» â€œ â€� â€¦
 //
 
-$lang = array_merge($lang, array(
-	'ACL_U_PPR_VIEW'		=> 'Può vedere lo storiche di modifiche dei post',
-	'ACL_U_PPR_DELETE'		=> 'Può eliminare post dallo storico di modifiche',
-	'ACL_U_PPR_RESTORE'		=> 'Può ripristinare i post dallo storico di modifiche',
-	'EXTENSION_BY'		=> 'Estensione creata da',
-	'PPR_REVISION'		=> 'Revisione del post',
-	'PPR_RETURN'		=> 'Ritorna alla revisione del post',
-	'PPR_TITLE'		=> 'Revisione Post',
-	'PPR_POST' => 'Modifiche al post',
-	'PPR_ORIGINAL' => 'Versione originale del post',
-	'PPR_RESTORED'		=> 'Post ripristinato',
-	'PPR_DELETED'		=> 'Post eliminato',
-	'PPR_POST_RESTORED' => 'Post ripristinato',
+$lang = array_merge ( $lang, array (
+		'ACL_U_PPR_VIEW' 	=> 'Può vedere lo storiche di modifiche dei post',
+		'ACL_U_PPR_DELETE' 	=> 'Può eliminare post dallo storico di modifiche',
+		'ACL_U_PPR_RESTORE' => 'Può ripristinare i post dallo storico di modifiche',
+		'PPR_REVISION' 		=> 'Revisione del post',
+		'PPR_RETURN'		=> 'Ritorna alla revisione del post',
+		'PPR_TITLE'			=> 'Revisione Post',
+		'PPR_POST'			=> 'Modifiche al post',
+		'PPR_ORIGINAL'		=> 'Versione originale del post',
+		'PPR_RESTORED'		=> 'Post ripristinato',
+		'PPR_DELETED'		=> 'Post eliminato',
+		'PPR_POST_RESTORED' => 'Post ripristinato' 
 ));

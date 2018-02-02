@@ -1,17 +1,17 @@
 imports:
     - { resource: tables.yml }
 services:
-    bruninoit.ppr.controller:
-        class: bruninoit\ppr\controller\main
+    leinad4mind.ppr.controller:
+        class: leinad4mind\ppr\controller\main
         arguments:
             - '@template'
             - '@dbal.conn'
-            - '%bruninoit.ppr.tables.ppr%'
+            - '%leinad4mind.ppr.tables.ppr%'
             - '@auth'
             - '@user'
             - '@controller.helper'
-    bruninoit.ppr.listener:
-        class: bruninoit\ppr\event\main_listener
+    leinad4mind.ppr.listener:
+        class: leinad4mind\ppr\event\main_listener
         arguments:
             - '@controller.helper'
             - '@template'
@@ -19,7 +19,7 @@ services:
             - '@user'
             - '%core.root_path%'
             - '%core.php_ext%'
-            - '%bruninoit.ppr.tables.ppr%'
+            - '%leinad4mind.ppr.tables.ppr%'
             - '@auth'
         tags:
             - { name: event.listener }
