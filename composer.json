@@ -1,15 +1,20 @@
 {
-	"name" : "leinad4mind/ppr",
+	"name" : "leinad4mind/post_revisions",
 	"type" : "phpbb-extension",
 	"description" : "Stores each revision of a post every time a post is edited. It will only make these past revisions viewable to those users who have the necessary permissions.",
 	"homepage" : "https://leinad4mind.top",
-	"version" : "1.0.0",
-	"time" : "2018-02-02",
+	"version" : "1.0.1",
+	"time" : "2018-10-15",
 	"license" : "GPL-2.0",
 	"keywords" : [ "post", "revision" ]
-	"authors" : [{
+	"authors" : [
+		{
 			"name" : "Leinad4Mind",
 			"role" : "Developer"
+		},
+		{
+			"name" : "Prime Halo",
+			"role" : "Original Developer"
 		}
 	],
 	"require" : {

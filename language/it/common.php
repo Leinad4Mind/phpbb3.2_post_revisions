@@ -32,19 +32,19 @@ if (empty ( $lang ) || ! is_array ( $lang )) {
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// â€™ Â«Â Â» â€œ â€� â€¦
+// ’ « » “ ” …
 //
 
 $lang = array_merge ( $lang, array (
-		'ACL_U_PPR_VIEW' 	=> 'Può vedere lo storiche di modifiche dei post',
-		'ACL_U_PPR_DELETE' 	=> 'Può eliminare post dallo storico di modifiche',
-		'ACL_U_PPR_RESTORE' => 'Può ripristinare i post dallo storico di modifiche',
-		'PPR_REVISION' 		=> 'Revisione del post',
-		'PPR_RETURN'		=> 'Ritorna alla revisione del post',
-		'PPR_TITLE'			=> 'Revisione Post',
-		'PPR_POST'			=> 'Modifiche al post',
-		'PPR_ORIGINAL'		=> 'Versione originale del post',
-		'PPR_RESTORED'		=> 'Post ripristinato',
-		'PPR_DELETED'		=> 'Post eliminato',
-		'PPR_POST_RESTORED' => 'Post ripristinato' 
+		'ACL_U_POST_REVISIONS_VIEW' 	 => 'Può vedere lo storiche di modifiche dei post',
+		'ACL_U_POST_REVISIONS_DELETE' 	 => 'Può eliminare post dallo storico di modifiche',
+		'ACL_U_POST_REVISIONS_RESTORE' 	 => 'Può ripristinare i post dallo storico di modifiche',
+		'POST_REVISIONS_REVISION' 		 => 'Revisione del post',
+		'POST_REVISIONS_RETURN' 		 => 'Ritorna alla revisione del post',
+		'POST_REVISIONS_TITLE' 			 => 'Revisione Post',
+		'POST_REVISIONS_POST' 			 => 'Modifiche al post',
+		'POST_REVISIONS_ORIGINAL' 		 => 'Versione originale del post',
+		'POST_REVISIONS_RESTORED' 		 => 'Post ripristinato',
+		'POST_REVISIONS_DELETED' 		 => 'Post eliminato',
+		'POST_REVISIONS_POST_RESTORED' 	 => 'Post ripristinato' 
 ));

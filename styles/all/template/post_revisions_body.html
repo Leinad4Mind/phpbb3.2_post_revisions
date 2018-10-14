@@ -1,0 +1,41 @@
+<!-- INCLUDE overall_header.html -->
+<h2>{TOPIC_TITLE}</h2> 
+    <!-- BEGIN post_revisions_list -->
+	<div id="p{post_revisions_list.POST_ID}" class="post has-profile <!-- IF post_revisions_list.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+		<div class="inner">
+			<dl class="postprofile" id="profile{post_revisions_list.POST_ID}">
+				<dt class="<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG -->has-profile-rank<!-- ELSE -->no-profile-rank<!-- ENDIF --> <!-- IF postrow.POSTER_AVATAR -->has-avatar<!-- ELSE -->no-avatar<!-- ENDIF -->">
+					<strong {post_revisions_list.USERNAME_COLOUR}>{post_revisions_list.USERNAME}</strong>
+				</dt>
+			</dl>
+			<div class="postbody">
+				<div id="post_content{post_revisions_list.POST_ID}">
+					<h3 <!-- IF post_revisions_list.S_FIRST_ROW -->class="first"<!-- ENDIF -->><a href="#p{post_revisions_list.POST_ID}">{post_revisions_list.POST_SUBJECT}</a></h3>
+
+					<ul class="post-buttons">
+						<!-- IF post_revisions_list.U_RESTORE -->
+							<li>
+								<a href="{post_revisions_list.U_RESTORE}" title="{L_RESTORE_POST}" class="button icon-button post_revisions-icon"><i class="icon fa-undo fa-fw"><span>{L_RESTORE_POST}</span></i></a>
+							</li>
+						<!-- ENDIF -->
+						<!-- IF post_revisions_list.U_DELETE -->
+							<li>
+								<a href="{post_revisions_list.U_DELETE}" title="{L_DELETE_POST}" class="button icon-button delete-icon"><i class="icon fa-trash fa-fw"><span>{L_DELETE_POST}</span></i></a>
+							</li>
+						<!-- ENDIF -->
+					</ul>
+
+					<p class="author"><span class="responsive-hide">{L_POST_BY_AUTHOR} <strong>{post_revisions_list.USERNAME}</strong> &raquo; </span>{post_revisions_list.DATE} </p>
+					<div class="content">{post_revisions_list.POST_TEXT}</div>
+						<!-- IF post_revisions_list.EDIT_REASON -->
+					<div class="notice">
+						<strong>{L_REASON}{L_COLON}</strong> <em>{post_revisions_list.EDIT_REASON}</em>
+					</div>
+				<!-- ENDIF -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr class="divider" />
+<!-- END post_revisions_list -->
+<!-- INCLUDE overall_footer.html -->

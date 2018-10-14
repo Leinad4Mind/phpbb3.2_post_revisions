@@ -1,2 +1,2 @@
 parameters:
-    leinad4mind.ppr.tables.ppr: '%core.table_prefix%ppr'
+    leinad4mind.post_revisions.tables.post_revisions: '%core.table_prefix%post_revisions'

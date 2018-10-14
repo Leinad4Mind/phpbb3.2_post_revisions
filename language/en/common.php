@@ -32,19 +32,19 @@ if (empty ( $lang ) || ! is_array ( $lang )) {
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 //
 // Some characters you may want to copy&paste:
-// â€™ Â«Â Â» â€œ â€� â€¦
+// ’ « » “ ” …
 //
 
 $lang = array_merge ( $lang, array (
-		'ACL_U_PPR_VIEW' 	=> 'Can view post history',
-		'ACL_U_PPR_DELETE' 	=> 'Can delete edits of posts',
-		'ACL_U_PPR_RESTORE' => 'Can restore old version of posts',
-		'PPR_REVISION'		=> 'Post Revision',
-		'PPR_RETURN' 		=> 'Return to Post Revision',
-		'PPR_TITLE' 		=> 'Post Revision',
-		'PPR_POST'		 	=> 'Post Edits',
-		'PPR_ORIGINAL' 		=> 'Original post version',
-		'PPR_RESTORED' 		=> 'Post restored',
-		'PPR_DELETED' 		=> 'Post revision deleted',
-		'PPR_POST_RESTORED' => 'Post restored' 
+		'ACL_U_POST_REVISIONS_VIEW' 	 => 'Can view post history',
+		'ACL_U_POST_REVISIONS_DELETE' 	 => 'Can delete edits of posts',
+		'ACL_U_POST_REVISIONS_RESTORE' 	 => 'Can restore old version of posts',
+		'POST_REVISIONS_REVISION' 		 => 'Post Revision',
+		'POST_REVISIONS_RETURN' 		 => 'Return to Post Revision',
+		'POST_REVISIONS_TITLE' 			 => 'Post Revision',
+		'POST_REVISIONS_POST' 			 => 'Post Edits',
+		'POST_REVISIONS_ORIGINAL' 		 => 'Original post version',
+		'POST_REVISIONS_RESTORED' 		 => 'Post restored',
+		'POST_REVISIONS_DELETED' 		 => 'Post revision deleted',
+		'POST_REVISIONS_POST_RESTORED' 	 => 'Post restored' 
 ));

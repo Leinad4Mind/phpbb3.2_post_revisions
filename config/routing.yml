@@ -1,9 +1,9 @@
-leinad4mind_ppr_controller:
-    path: /ppr/view/{post_id}
-    defaults: { _controller: leinad4mind.ppr.controller:view }
-leinad4mind_pprdelete_controller:
-    path: /ppr/delete/{revision_id}
-    defaults: { _controller: leinad4mind.ppr.controller:delete }
-leinad4mind_pprrestore_controller:
-    path: /ppr/restore/{revision_id}
-    defaults: { _controller: leinad4mind.ppr.controller:restore }
+leinad4mind_post_revisions_controller:
+    path: /post_revisions/view/{post_id}
+    defaults: { _controller: leinad4mind.post_revisions.controller:view }
+leinad4mind_post_revisionsdelete_controller:
+    path: /post_revisions/delete/{revision_id}
+    defaults: { _controller: leinad4mind.post_revisions.controller:delete }
+leinad4mind_post_revisionsrestore_controller:
+    path: /post_revisions/restore/{revision_id}
+    defaults: { _controller: leinad4mind.post_revisions.controller:restore }

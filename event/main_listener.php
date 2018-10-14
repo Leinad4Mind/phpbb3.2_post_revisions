@@ -7,7 +7,7 @@
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
  *
  */
-namespace leinad4mind\ppr\event;
+namespace leinad4mind\post_revisions\event;
 
 /**
  *
@@ -23,7 +23,7 @@ class main_listener implements EventSubscriberInterface {
 	static public function getSubscribedEvents() {
 		return array (
 				'core.user_setup' => 'load_language_on_setup',
-				'core.permissions' => 'permission_ppr',
+				'core.permissions' => 'permission_post_revisions',
 				'core.modify_submit_post_data' => 'edit_action',
 				// 'core.submit_post_modify_sql_data' => 'last_edit',
 				// viewtopic
@@ -37,7 +37,7 @@ class main_listener implements EventSubscriberInterface {
 	protected $db;
 	/** @var \phpbb\user */
 	protected $user;
-	protected $ppr_table;
+	protected $post_revisions_table;
 	protected $root_path;
 	protected $phpEx;
 	/** @var \phpbb\auth\auth */
@@ -53,28 +53,28 @@ class main_listener implements EventSubscriberInterface {
 	 * @param \phpbb\template $template
 	 *        	Template object
 	 */
-	public function __construct(\phpbb\controller\helper $controller_helper, \phpbb\template\template $template, \phpbb\db\driver\driver_interface $db, \phpbb\user $user, $root_path, $phpEx, $ppr_table, \phpbb\auth\auth $auth) {
+	public function __construct(\phpbb\controller\helper $controller_helper, \phpbb\template\template $template, \phpbb\db\driver\driver_interface $db, \phpbb\user $user, $root_path, $phpEx, $post_revisions_table, \phpbb\auth\auth $auth) {
 		$this->controller_helper = $controller_helper;
 		$this->template = $template;
 		$this->db = $db;
 		$this->user = $user;
-		$this->ppr_table = $ppr_table;
+		$this->post_revisions_table = $post_revisions_table;
 		$this->root_path = $root_path;
 		$this->phpEx = $phpEx;
 		$this->auth = $auth;
 	}
-	public function permission_ppr($event) {
+	public function permission_post_revisions($event) {
 		$permissions = $event ['permissions'];
-		$permissions ['u_ppr_view'] = array (
-				'lang' => 'ACL_U_PPR_VIEW',
+		$permissions ['u_post_revisions_view'] = array (
+				'lang' => 'ACL_U_POST_REVISIONS_VIEW',
 				'cat' => 'misc' 
 		);
-		$permissions ['u_ppr_restore'] = array (
-				'lang' => 'ACL_U_PPR_RESTORE',
+		$permissions ['u_post_revisions_restore'] = array (
+				'lang' => 'ACL_U_POST_REVISIONS_RESTORE',
 				'cat' => 'misc' 
 		);
-		$permissions ['u_ppr_delete'] = array (
-				'lang' => 'ACL_U_PPR_DELETE',
+		$permissions ['u_post_revisions_delete'] = array (
+				'lang' => 'ACL_U_POST_REVISIONS_DELETE',
 				'cat' => 'misc' 
 		);
 		$event ['permissions'] = $permissions;
@@ -82,7 +82,7 @@ class main_listener implements EventSubscriberInterface {
 	public function load_language_on_setup($event) {
 		$lang_set_ext = $event ['lang_set_ext'];
 		$lang_set_ext [] = array (
-				'ext_name' => 'leinad4mind/ppr',
+				'ext_name' => 'leinad4mind/post_revisions',
 				'lang_set' => 'common' 
 		);
 		$event ['lang_set_ext'] = $lang_set_ext;
@@ -90,21 +90,21 @@ class main_listener implements EventSubscriberInterface {
 	public function query($event) {
 		$array = array ();
 		$qcontrol = "SELECT post_id
-					 FROM " . $this->ppr_table . "
+					 FROM " . $this->post_revisions_table . "
 					 GROUP BY post_id";
 		$qqcontrol = $this->db->sql_query ( $qcontrol );
 		while ( $control = $this->db->sql_fetchrow ( $qqcontrol ) ) {
 			$array [] = $control ['post_id'];
 		}
 		
-		$this->ppr = $array;
+		$this->post_revisions = $array;
 	}
 	public function button($event) {
 		$pr = $event ['post_row'];
 		$post_id = $pr ['POST_ID'];
 		
-		if (in_array ( $post_id, $this->ppr ) and $this->auth->acl_get ( 'u_ppr_view' )) {
-			$pr ['U_PPR'] = $this->controller_helper->route ( 'leinad4mind_ppr_controller', array (
+		if (in_array ( $post_id, $this->post_revisions ) and $this->auth->acl_get ( 'u_post_revisions_view' )) {
+			$pr ['U_POST_REVISIONS'] = $this->controller_helper->route ( 'leinad4mind_post_revisions_controller', array (
 					'post_id' => $post_id 
 			) );
 		}
@@ -123,7 +123,7 @@ class main_listener implements EventSubscriberInterface {
 			
 			// first edit? control
 			$qcontrol = "SELECT count(revision_id) as tot
-						 FROM " . $this->ppr_table . "
+						 FROM " . $this->post_revisions_table . "
 						 WHERE post_id = " . $post_id;
 			$qqcontrol = $this->db->sql_query ( $qcontrol );
 			$control = $this->db->sql_fetchrow ( $qqcontrol );
@@ -147,10 +147,10 @@ class main_listener implements EventSubscriberInterface {
 						'post_text' => $pa ['post_text'],
 						'bbcode_uid' => $pa ['bbcode_uid'],
 						'bbcode_bitfield' => $pa ['bbcode_bitfield'],
-						'post_edit_reason' => $this->user->lang ['PPR_ORIGINAL'] 
+						'post_edit_reason' => $this->user->lang ['POST_REVISIONS_ORIGINAL'] 
 				);
 				
-				$sql_insert = 'INSERT INTO ' . $this->ppr_table . ' ' . $this->db->sql_build_array ( 'INSERT', $sql_arr );
+				$sql_insert = 'INSERT INTO ' . $this->post_revisions_table . ' ' . $this->db->sql_build_array ( 'INSERT', $sql_arr );
 				$this->db->sql_query ( $sql_insert );
 			} // control
 			  
@@ -166,7 +166,7 @@ class main_listener implements EventSubscriberInterface {
 					'post_edit_reason' => $post_edit_reason 
 			);
 			
-			$sql_insert = 'INSERT INTO ' . $this->ppr_table . ' ' . $this->db->sql_build_array ( 'INSERT', $sql_arr );
+			$sql_insert = 'INSERT INTO ' . $this->post_revisions_table . ' ' . $this->db->sql_build_array ( 'INSERT', $sql_arr );
 			$this->db->sql_query ( $sql_insert );
 		}
 	}

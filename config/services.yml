@@ -1,17 +1,17 @@
 imports:
     - { resource: tables.yml }
 services:
-    leinad4mind.ppr.controller:
-        class: leinad4mind\ppr\controller\main
+    leinad4mind.post_revisions.controller:
+        class: leinad4mind\post_revisions\controller\main
         arguments:
             - '@template'
             - '@dbal.conn'
-            - '%leinad4mind.ppr.tables.ppr%'
+            - '%leinad4mind.post_revisions.tables.post_revisions%'
             - '@auth'
             - '@user'
             - '@controller.helper'
-    leinad4mind.ppr.listener:
-        class: leinad4mind\ppr\event\main_listener
+    leinad4mind.post_revisions.listener:
+        class: leinad4mind\post_revisions\event\main_listener
         arguments:
             - '@controller.helper'
             - '@template'
@@ -19,7 +19,7 @@ services:
             - '@user'
             - '%core.root_path%'
             - '%core.php_ext%'
-            - '%leinad4mind.ppr.tables.ppr%'
+            - '%leinad4mind.post_revisions.tables.post_revisions%'
             - '@auth'
         tags:
             - { name: event.listener }
